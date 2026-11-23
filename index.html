@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Acompanhamento de Obras | Soluções Visuais</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #111315;
+    color: #fff;
+}
+
+:root {
+    --gold: #c5a36b;
+    --dark: #111315;
+    --gray: #202326;
+    --white: #ffffff;
+}
+
+/* MENU */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(17,19,21,.95);
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 10% 80px;
+    background:
+    linear-gradient(90deg, #111315 20%, rgba(17,19,21,.75)),
+    linear-gradient(135deg, #343a3e, #111315);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #ccc;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 17px 30px;
+    background: var(--gold);
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #fff;
+    transform: translateY(-3px);
+}
+
+/* ILUSTRAÇÃO DA OBRA */
+
+.building {
+    position: absolute;
+    right: 8%;
+    bottom: 0;
+    width: 35%;
+    height: 75%;
+    opacity: .35;
+}
+
+.tower {
+    position: absolute;
+    bottom: 0;
+    width: 65%;
+    height: 90%;
+    right: 15%;
+    background: linear-gradient(90deg,#444,#777,#333);
+    border: 2px solid #888;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 12px;
+    gap: 8px;
+}
+
+.window {
+    background: #b6a17b;
+    opacity: .6;
+    border: 2px solid #333;
+}
+
+/* SEÇÕES */
+
+section {
+    padding: 100px 10%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title small {
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-top: 15px;
+}
+
+.section-title p {
+    color: #aaa;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* SERVIÇOS */
+
+.services {
+    background: #191c1f;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #25292d;
+    padding: 35px;
+    border-bottom: 3px solid var(--gold);
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    background: #303539;
+}
+
+.icon {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    font-size: 21px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+/* DIFERENCIAL */
+
+.differential {
+    background: #111315;
+}
+
+.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.visual {
+    min-height: 420px;
+    background: linear-gradient(135deg,#6b6252,#25292d);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #555;
+    position: relative;
+}
+
+.visual-text {
+    font-size: 80px;
+    color: rgba(255,255,255,.3);
+}
+
+.text-content h2 {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.text-content h2 span {
+    color: var(--gold);
+}
+
+.text-content p {
+    color: #bbb;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.list {
+    list-style: none;
+}
+
+.list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #333;
+    color: #ddd;
+}
+
+.list li::before {
+    content: "✓";
+    color: var(--gold);
+    margin-right: 12px;
+}
+
+/* PROCESSO */
+
+.process {
+    background: #1b1e21;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.step {
+    text-align: center;
+    padding: 25px;
+}
+
+.number {
+    font-size: 45px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.step h3 {
+    margin-bottom: 15px;
+}
+
+.step p {
+    color: #aaa;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* PARCERIA */
+
+.partnership {
+    background: linear-gradient(120deg,#292d30,#111315);
+    text-align: center;
+}
+
+.partnership h2 {
+    font-size: 42px;
+    max-width: 850px;
+    margin: auto;
+    line-height: 1.3;
+}
+
+.partnership h2 span {
+    color: var(--gold);
+}
+
+.partnership p {
+    color: #bbb;
+    max-width: 650px;
+    margin: 25px auto 35px;
+    line-height: 1.7;
+}
+
+/* CONTATO */
+
+.contact {
+    text-align: center;
+    background: #111315;
+}
+
+.contact h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    color: #aaa;
+    margin-bottom: 35px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 10%;
+    background: #080909;
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px) {
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .building {
+        opacity: .15;
+        width: 70%;
+    }
+
+    nav a {
+        margin-left: 10px;
+        font-size: 10px;
+    }
+}
+
+@media(max-width:600px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 140px 7% 80px;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+
+    .cards,
+    .split,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2,
+    .text-content h2 {
+        font-size: 30px;
+    }
+
+    .partnership h2 {
+        font-size: 30px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+OBRA<span>360</span>
+</div>
+
+<nav>
+<a href="#servicos">Serviços</a>
+<a href="#acompanhamento">Acompanhamento</a>
+<a href="#processo">Como funciona</a>
+<a href="#contato">Contato</a>
+</nav>
+
+</header>
+
+
+<!-- CAPA -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="tag">SOLUÇÕES VISUAIS PARA CONSTRUTORAS</div>
+
+<h1>
+Sua obra evolui.<br>
+Sua marca registra.<br>
+<span>Seu empreendimento vende.</span>
+</h1>
+
+<p>
+Acompanhamento fotográfico profissional, tours virtuais
+e produção de conteúdo visual para construtoras e incorporadoras.
+Do início da construção à comercialização das unidades.
+</p>
+
+<a href="#contato" class="btn">
+CONHEÇA NOSSA SOLUÇÃO
+</a>
+
+</div>
+
+<div class="building">
+
+<div class="tower">
+
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+<div class="window"></div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- SERVIÇOS -->
+
+<section class="services" id="servicos">
+
+<div class="section-title">
+
+<small>NOSSAS SOLUÇÕES</small>
+
+<h2>Uma solução completa para sua construtora</h2>
+
+<p>
+Centralizamos o acompanhamento visual e a apresentação
+comercial de todos os seus empreendimentos.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<div class="icon">📸</div>
+
+<h3>Fotografia de Obras</h3>
+
+<p>
+Registros fotográficos semanais da evolução da construção,
+documentando cada etapa e criando um histórico visual
+completo do empreendimento.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏗️</div>
+
+<h3>Acompanhamento Contínuo</h3>
+
+<p>
+Monitoramento visual desde o início da obra até sua conclusão,
+com organização e armazenamento de todo o material produzido.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>Tours Virtuais</h3>
+
+<p>
+Criação de experiências imersivas para apresentar apartamentos
+decorados, áreas comuns e empreendimentos completos.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🏠</div>
+
+<h3>Fotografia de Decorados</h3>
+
+<p>
+Produção de imagens profissionais dos apartamentos decorados,
+valorizando arquitetura, acabamentos e detalhes dos ambientes.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎯</div>
+
+<h3>Material Comercial</h3>
+
+<p>
+Conteúdo visual para equipes de vendas, campanhas publicitárias,
+redes sociais e apresentações institucionais.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<h3>Gestão Visual dos Empreendimentos</h3>
+
+<p>
+Organização padronizada dos registros de todas as obras
+da construtora, criando um acervo visual de longo prazo.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACOMPANHAMENTO -->
+
+<section class="differential" id="acompanhamento">
+
+<div class="split">
+
+<div class="visual">
+
+<div class="visual-text">360°</div>
+
+</div>
+
+
+<div class="text-content">
+
+<small style="color:#c5a36b;letter-spacing:3px">
+ACOMPANHAMENTO DE PONTA A PONTA
+</small>
+
+<h2>
+Cada etapa da obra merece ser <span>registrada.</span>
+</h2>
+
+<p>
+Acompanhamos a evolução dos empreendimentos com registros
+fotográficos periódicos, criando uma linha do tempo visual
+que documenta a transformação de cada construção.
+</p>
+
+<p>
+O resultado é um acervo profissional que pode ser utilizado
+pela engenharia, marketing, diretoria e equipe comercial.
+</p>
+
+<ul class="list">
+
+<li>Registros semanais programados.</li>
+
+<li>Documentação de todas as etapas.</li>
+
+<li>Organização por empreendimento.</li>
+
+<li>Histórico fotográfico completo.</li>
+
+<li>Material pronto para divulgação.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TOURS -->
+
+<section class="services">
+
+<div class="section-title">
+
+<small>EXPERIÊNCIA IMERSIVA</small>
+
+<h2>Apresente antes mesmo da visita presencial</h2>
+
+<p>
+Transforme a apresentação dos empreendimentos em uma
+experiência digital que aproxima o cliente do imóvel.
+</p>
+
+</div>
+
+
+<div class="split">
+
+<div class="text-content">
+
+<h2>
+Seu decorado disponível <span>24 horas por dia.</span>
+</h2>
+
+<p>
+Com a criação de tours virtuais, seus clientes podem conhecer
+os ambientes, explorar os espaços e visualizar os detalhes
+do empreendimento de qualquer lugar.
+</p>
+
+<ul class="list">
+
+<li>Tour virtual de apartamentos decorados.</li>
+
+<li>Visitação digital dos ambientes.</li>
+
+<li>Apresentação de áreas de lazer.</li>
+
+<li>Experiência para sites e campanhas comerciais.</li>
+
+<li>Ferramenta de apoio à equipe de vendas.</li>
+
+</ul>
+
+</div>
+
+<div class="visual">
+
+<div class="visual-text">TOUR 360°</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROCESSO -->
+
+<section class="process" id="processo">
+
+<div class="section-title">
+
+<small>METODOLOGIA DE TRABALHO</small>
+
+<h2>Como funciona nossa parceria</h2>
+
+<p>
+Um processo organizado para atender todos os empreendimentos
+da construtora.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+<div class="step">
+
+<div class="number">01</div>
+
+<h3>Planejamento</h3>
+
+<p>
+Mapeamento das obras, cronograma de visitas e definição
+das necessidades de cada empreendimento.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">02</div>
+
+<h3>Produção</h3>
+
+<p>
+Visitas periódicas, fotografia profissional e produção
+dos conteúdos contratados.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">03</div>
+
+<h3>Organização</h3>
+
+<p>
+Catalogação, armazenamento e disponibilização dos registros
+fotográficos e materiais produzidos.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">04</div>
+
+<h3>Entrega</h3>
+
+<p>
+Disponibilização do material para marketing, engenharia,
+diretoria e equipes comerciais.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PARCERIA -->
+
+<section class="partnership">
+
+<small style="color:#c5a36b;letter-spacing:3px">
+UMA PARCERIA ESTRATÉGICA
+</small>
+
+<h2>
+Sua construtora tem várias obras.
+<span>Nós cuidamos da história visual de todas elas.</span>
+</h2>
+
+<p>
+Mais do que contratar serviços pontuais de fotografia,
+sua empresa pode contar com um parceiro especializado
+para acompanhar todos os empreendimentos, padronizando
+os registros e fortalecendo a comunicação da construtora.
+</p>
+
+<a href="#contato" class="btn">
+SOLICITE UMA PROPOSTA
+</a>
+
+</section>
+
+
+<!-- CONTATO -->
+
+<section class="contact" id="contato">
+
+<h2>Vamos acompanhar suas próximas obras?</h2>
+
+<p>
+Entre em contato e conheça uma proposta de acompanhamento
+fotográfico e produção visual para sua construtora.
+</p>
+
+<a href="https://wa.me/5511941012101"
+class="btn" target="_blank">
+
+FALE CONOSCO PELO WHATSAPP
+
+</a>
+
+</section>
+
+
+<footer>
+
+OBRA360 | Acompanhamento de Obras e Soluções Visuais
+
+<br><br>
+
+© 2026 - Todos os direitos reservados.
+
+</footer>
+
+</body>
+</html>
+
